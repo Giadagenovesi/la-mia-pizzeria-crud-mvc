@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model List<Pizza>
+<div class="jumbotron d-flex align-items-center">
+    <div class="jt-logo d-flex align-items-center justify-content-center">
+        GIADA'S PIZZA
+    </div>
+</div>
+
+<div class="container">
+    <div class="row g-5">
+
+        <h1 class="py-5 text-center ms_main_title">Il Nostro Menù</h1>
+        <hr/>
+        @foreach (Pizza pizza in Model)
+        {
+        <div class="col-4">
+            <div class="card">
+                <div class="card-img">
+                    <img src="@pizza.Immagine" />
+                </div>
+                <div class="card-title">@pizza.Gusto</div>
+                <div class="card-subtitle">@pizza.Ingredienti.</div>
+                <hr class="card-divider">
+                <div class="card-price text-center">
+                    <span>@pizza.Prezzo€</span> €
+                </div>
+            </div>
+        </div>
+        }
+        <hr />    
+    </div>
+</div>
+    
+
+
+  
