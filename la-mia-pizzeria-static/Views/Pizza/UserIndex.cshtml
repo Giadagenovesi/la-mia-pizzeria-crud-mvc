@@ -8,12 +8,21 @@
         GIADA'S PIZZA
     </div>
 </div>
+<div class="pizzeria">
+    <div class="ms_container d-flex justify-content-between">
+        <img class="pizzeria_img mb-5" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mangiaebevi.it%2Fwp-content%2Fuploads%2F2019%2F05%2Fpizza-e1557907891831.jpg&f=1&nofb=1&ipt=3c77ebb7f71ba751dd9a0268228d4178635028a45746d878786b668328c93acc&ipo=images" />
+        <p class="slogan px-4">
+            Vieni a gustare la nostra pizza artigianale, con una varietà di ingredienti freschi e una crosta croccante. Un’esperienza culinaria che ti farà tornare per un altro morso!
+            <i class="fa-solid fa-pizza-slice"></i>
+        </p>
+    </div>
+</div>
 
-<div class="container">
-    <div class="row ">
+<div class="container py-5">
+    <hr/>
+    <div class="row pb-5">
 
-        <h1 class="py-5 text-center ms_main_title">Il Nostro Menù</h1>
-        <hr/>
+        <h1 class="py-3 text-center ms_main_title">Il Nostro Menù</h1>
         @foreach (Pizza pizza in Model)
         {
             <div class="col-lg-4 col-md-6 col-sm-12 g-4">
@@ -25,16 +34,17 @@
                 <div class="card-subtitle">@pizza.Ingredienti.</div>
                 <hr class="card-divider">
                 <div class="card-price text-center">
-                    <span>@pizza.Prezzo€</span> €
+                    <span>@pizza.Prezzo</span> €
                 </div>
                     <a class="btn details-btn" href="@Url.Action("Dettagli", "Pizza", new { id = pizza.Id })">
-                        Dettagli
+                        Dettagli <i class="fa-solid fa-info mx-3"></i>
                     </a>
             </div>
         </div>
         }
-        <hr />    
+
     </div>
+    <hr />    
 </div>
     
 

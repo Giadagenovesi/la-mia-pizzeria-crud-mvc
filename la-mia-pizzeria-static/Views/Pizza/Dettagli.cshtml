@@ -1,17 +1,24 @@
 ﻿@model Pizza
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-img">
-                    <img src="@Model.Immagine" />
-                </div>
-                <div class="card-title">@Model.Gusto</div>
-                <div class="card-subtitle">@Model.Ingredienti.</div>
-                <hr class="card-divider">
-                <div class="card-price text-center">
-                    <span>@Model.Prezzo€</span> €
+<div class="jumbotron d-flex align-items-center">
+    <div class="jt-logo d-flex align-items-center justify-content-center">
+        GIADA'S PIZZA
+    </div>
+</div>
+<div class="details_container">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-4">
+                <div class="details_card">
+                    <div class="card-img">
+                        <img src="@Model.Immagine" />
+                    </div>
+                    <div class="card-title">@Model.Gusto</div>
+                    <div class="card-subtitle">@Model.Ingredienti.</div>
+                    <hr class="card-divider">
+                    <div class="card-price text-center">
+                        <span>@Model.Prezzo</span> €
+                    </div>
                 </div>
             </div>
         </div>
