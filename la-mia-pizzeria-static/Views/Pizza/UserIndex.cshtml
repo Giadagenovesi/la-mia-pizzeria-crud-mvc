@@ -8,6 +8,7 @@
         GIADA'S PIZZA
     </div>
 </div>
+
 <div class="pizzeria">
     <div class="ms_container d-flex justify-content-between">
         <img class="pizzeria_img mb-5" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mangiaebevi.it%2Fwp-content%2Fuploads%2F2019%2F05%2Fpizza-e1557907891831.jpg&f=1&nofb=1&ipt=3c77ebb7f71ba751dd9a0268228d4178635028a45746d878786b668328c93acc&ipo=images" />
@@ -26,23 +27,22 @@
         @foreach (Pizza pizza in Model)
         {
             <div class="col-lg-4 col-md-6 col-sm-12 g-4">
-            <div class="card">
-                <div class="card-img">
-                    <img src="@pizza.Immagine" />
+                <div class="card">
+                    <div class="card-img">
+                        <img src="@pizza.Immagine" />
+                    </div>
+                    <div class="card-title">@pizza.Gusto</div>
+                    <div class="card-subtitle">@pizza.Ingredienti.</div>
+                    <hr class="card-divider">
+                    <div class="card-price text-center">
+                        <span>@pizza.Prezzo</span> €
+                    </div>
+                        <a class="btn details-btn" href="@Url.Action("Dettagli", "Pizza", new { id = pizza.Id })">
+                            Dettagli <i class="fa-solid fa-info mx-3"></i>
+                        </a>
                 </div>
-                <div class="card-title">@pizza.Gusto</div>
-                <div class="card-subtitle">@pizza.Ingredienti.</div>
-                <hr class="card-divider">
-                <div class="card-price text-center">
-                    <span>@pizza.Prezzo</span> €
-                </div>
-                    <a class="btn details-btn" href="@Url.Action("Dettagli", "Pizza", new { id = pizza.Id })">
-                        Dettagli <i class="fa-solid fa-info mx-3"></i>
-                    </a>
             </div>
-        </div>
         }
-
     </div>
     <hr />    
 </div>
