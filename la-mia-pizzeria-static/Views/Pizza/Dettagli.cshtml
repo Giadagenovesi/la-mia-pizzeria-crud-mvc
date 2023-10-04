@@ -14,11 +14,23 @@
                         <img src="@Model.Immagine" />
                     </div>
                     <div class="card-title">@Model.Gusto</div>
+                    <p>
+                        <strong>Categoria:</strong>
+                        @if (Model.Category != null)
+                        {
+                            <span>@Model.Category.Name</span>
+                        }
+                        else
+                        {
+                            <span>Nessuna categoria associata</span>
+                        }
+                    </p>
                     <div class="card-subtitle">@Model.Ingredienti.</div>
                     <hr class="card-divider">
                     <div class="card-price text-center">
                         <span>@Model.Prezzo</span> €
                     </div>
+                    
                 </div>
             </div>
         </div>

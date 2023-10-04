@@ -1,3 +1,6 @@
+using la_mia_pizzeria_static.CustomLoggers;
+using la_mia_pizzeria_static.Database;
+
 namespace la_mia_pizzeria_static
 {
     public class Program
@@ -8,6 +11,12 @@ namespace la_mia_pizzeria_static
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Dependency Injection
+            builder.Services.AddScoped<ICustomLogger, CustomFileLogger>();
+            builder.Services.AddScoped<PizzeriaContext, PizzeriaContext>();
+
+
 
             var app = builder.Build();
 

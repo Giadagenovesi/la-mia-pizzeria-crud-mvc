@@ -12,7 +12,7 @@ namespace la_mia_pizzeria_static.Models
 
         [Required(ErrorMessage = "Una pizza deve per forza avere un gusto")]
         [MaxLength(100, ErrorMessage = "La massima lunghezza del campo è di 100 caratteri")]
-        public string Gusto {  get; set; }
+        public string Gusto { get; set; }
 
         [Required(ErrorMessage = "Non può esistere una pizza senza ingredienti")]
         [MinimumWord]
@@ -22,14 +22,19 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage = "Non siamo un ente di beneficenza, inserisci un prezzo per questa pizza!")]
         public float Prezzo { get; set; }
 
+
+        // Relazione 1:* con la categoria
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
+
         public Pizza() { }
 
         public Pizza(string immagine, string gusto, string ingredienti, float prezzo)
         {
-            this.Immagine = immagine;
-            this.Gusto = gusto;
-            this.Ingredienti = ingredienti;
-            this.Prezzo = prezzo;   
+            Immagine = immagine;
+            Gusto = gusto;
+            Ingredienti = ingredienti;
+            Prezzo = prezzo;
         }
     }
 }
