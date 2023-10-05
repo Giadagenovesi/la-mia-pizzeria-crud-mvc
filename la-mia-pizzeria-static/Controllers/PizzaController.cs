@@ -20,7 +20,7 @@ namespace la_mia_pizzeria_static.Controllers
         public IActionResult Index()
         {
             _myLogger.WriteLog("Pagina Admin gestione Pizze");
-            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
+            List<Pizza> pizzas = _myDatabase.Pizzas.Include(Pizza => Pizza.Category).ToList<Pizza>();
 
             return View("Index", pizzas);
         }
@@ -44,7 +44,7 @@ namespace la_mia_pizzeria_static.Controllers
         public IActionResult UserIndex()
         {
             _myLogger.WriteLog("Pagina Home Pizze");
-            List<Pizza> pizzas = _myDatabase.Pizzas.ToList<Pizza>();
+            List<Pizza> pizzas = _myDatabase.Pizzas.Include(Pizza => Pizza.Category).ToList<Pizza>();
 
             return View("UserIndex", pizzas);
 

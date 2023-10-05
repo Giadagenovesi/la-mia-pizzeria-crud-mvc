@@ -10,6 +10,7 @@ namespace la_mia_pizzeria_static.Models
         [StringLength(50, ErrorMessage = "Il Nome della categoria non può superare i 50 caratteri")]
         public string Name { get; set; }
 
+        // Relazione 1:* con le pizze
         public List<Pizza>? Pizzas { get; set; }
 
         public Category()
