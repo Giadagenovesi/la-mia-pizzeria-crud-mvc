@@ -20,6 +20,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Immagine</th>
                         <th scope="col">Gusto</th>
+                        <th scope="col">Ingredienti</th>
                         <th scope="col">Descrizione</th>
                         <th scope="col">Categorie</th>
                         <th scope="col">Prezzo</th>
@@ -32,12 +33,36 @@
                         <tr>
                             <td scope="row">@pizza.Id</td>
                             <td>
-                                <img src="@pizza.Immagine" />
+                                <img src="@pizza.Image" />
                             </td>
-                            <td>@pizza.Gusto</td>
-                            <td>@pizza.Descrizione</td>
-                            <td>@pizza.Category?.Name</td>
-                            <td>@pizza.Prezzo€</td>
+                            <td>@pizza.Taste</td>
+                            <td>@pizza.Description</td>
+                            <td>
+                                @if(pizza.CategoryId != null)
+                                {
+                                    @pizza.Category?.Name
+                                } else
+                                {
+                                    <span>Nessuna categoria selezionata</span>
+                                }
+                            </td>
+                            <td>
+                                @if(pizza.Ingredients!= null && pizza.Ingredients.Count > 0)
+                                {
+                                <ul class=" d-flex align-items-center list-unstyled">
+                                    @foreach (Ingredient ingredient in pizza.Ingredients)
+                                    {
+                                        <li class="me-1">
+                                            @ingredient?.Name
+                                        </li>
+                                    }
+                                </ul>
+                                } else
+                                {
+                                    <span>Non ci sono ingredienti selezionati</span>
+                                }
+                            </td>
+                            <td>@pizza.Price€</td>
                             <td>
                                 <a class="btn my_btn btn-sm" href="@Url.Action("Dettagli", "Pizza", new { id = pizza.Id })">
                                     <i class="fa-solid fa-info mx-1"></i>

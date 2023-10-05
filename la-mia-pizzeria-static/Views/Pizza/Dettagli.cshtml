@@ -11,9 +11,9 @@
             <div class="col-lg-4 col-sm-12">
                 <div class="details_card">
                     <div class="card-img">
-                        <img src="@Model.Immagine" />
+                        <img src="@Model.Image" />
                     </div>
-                    <div class="card-title">@Model.Gusto</div>
+                    <div class="card-title">@Model.Taste</div>
                     <p>
                         <strong>Categoria:</strong>
                         @if (Model.Category != null)
@@ -25,10 +25,28 @@
                             <span>Nessuna categoria associata</span>
                         }
                     </p>
-                    <div class="card-subtitle">@Model.Descrizione.</div>
+                    <p>
+                        <strong>Ingredienti:</strong>
+                        @if (Model.Ingredients != null && Model.Ingredients.Count > 0)
+                        {
+                            <ul class=" d-flex list-unstyled">
+                                @foreach (Ingredient ingredient in Model.Ingredients)
+                                {
+                                    <li class="me-1">
+                                        @ingredient?.Name
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span>Non ci sono ingredienti selezionati</span>
+                        }
+                    </p>
+                    <div class="card-subtitle">@Model.Description.</div>
                     <hr class="card-divider">
                     <div class="card-price text-center">
-                        <span>@Model.Prezzo</span> €
+                        <span>@Model.Price</span> €
                     </div>
                     
                 </div>

@@ -10,18 +10,18 @@
             <input type="hidden" asp-for="Pizza.Id" />
             <div class="mb-3">
                 <strong>Gusto:</strong>
-                <input type="text" class="form-control" asp-for="Pizza.Gusto">
-                <span asp-validation-for="Pizza.Gusto" class="text-danger"></span>
+                <input type="text" class="form-control" asp-for="Pizza.Taste">
+                <span asp-validation-for="Pizza.Taste" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <strong>Descrizione:</strong>
-                <input type="text" class="form-control" asp-for="Pizza.Descrizione">
-                <span asp-validation-for="Pizza.Descrizione" class="text-danger"></span>
+                <input type="text" class="form-control" asp-for="Pizza.Description">
+                <span asp-validation-for="Pizza.Description" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <strong>Prezzo:</strong>
-                <input type="number" class="form-control" asp-for="Pizza.Prezzo">
-                <span asp-validation-for="Pizza.Prezzo" class="text-danger"></span>
+                <input type="number" class="form-control" asp-for="Pizza.Price">
+                <span asp-validation-for="Pizza.Price" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <strong>Categoria:</strong>
@@ -40,10 +40,21 @@
                     }
                 </select>
             </div>
+
+            <!-- SELECT MULTIPLA PER I TAGS -->
+            <div class="mb-3">
+                <strong>Seleziona gli Ingredienti:</strong>
+                <select asp-for="SelectedIngredientsId"
+                        multiple="multiple"
+                        size="10"
+                        class="form-control mb-2 mr-sm-2 ml-sm-3 leftList"
+                        asp-items="@Model.Ingredients">
+                </select>
+            </div>
             <div class="mb-3">
                 <strong>URL Immagine:</strong>
-                <input type="text" class="form-control" asp-for="Pizza.Immagine">
-                <span asp-validation-for="Pizza.Immagine" class="text-danger"></span>
+                <input type="text" class="form-control" asp-for="Pizza.Image">
+                <span asp-validation-for="Pizza.Image" class="text-danger"></span>
             </div>
             <button type="submit" class="btn my_btn mb-5">Aggiorna</button>
         </form>
