@@ -192,3 +192,9 @@
 05-10-2023 17:58:17 LOG: Pagina Admin gestione Pizze
 06-10-2023 11:47:48 LOG: Pagina Home Pizze
 06-10-2023 11:48:59 LOG: Pagina Home Pizze
+06-10-2023 11:54:57 LOG: Pagina Home Pizze
+06-10-2023 11:55:28 LOG: Pagina Admin gestione Pizze
+06-10-2023 11:55:39 LOG: Pagina Admin gestione Pizze
+06-10-2023 11:55:53 LOG: Pagina Admin gestione Pizze
+06-10-2023 12:00:39 LOG: Pagina Home Pizze
+06-10-2023 12:06:55 LOG: Pagina Home Pizze
