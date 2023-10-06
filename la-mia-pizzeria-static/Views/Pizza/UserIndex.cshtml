@@ -21,6 +21,7 @@
 
 <div class="container py-5">
     <hr/>
+
     <div class="row pb-5">
 
         <h1 class="py-3 text-center ms_main_title">Il Nostro Menù</h1>
@@ -31,8 +32,41 @@
                     <div class="card-img">
                         <img src="@pizza.Image" />
                     </div>
-                    <div class="card-title">@pizza.Taste</div>
-                    <div class="card-subtitle">@pizza.Description.</div>
+                    <hr class="card-divider">
+                    <div class="my_card_container">
+                        <div class="card-title">@pizza.Taste</div>
+                        <p>
+                            <strong>Categoria:</strong>
+                            @if (@pizza.Category != null)
+                            {
+                                <span>@pizza.Category.Name</span>
+                            }
+                            else
+                            {
+                                <span>Nessuna categoria associata</span>
+                            }
+                        </p>
+                        <p>
+                            <strong>Ingredienti:</strong>
+                            @if (@pizza.Ingredients != null && @pizza.Ingredients.Count > 0)
+                            {
+                                <ul class=" d-flex list-unstyled">
+                                    @foreach (Ingredient ingredient in @pizza.Ingredients)
+                                    {
+                                        <li class="me-1">
+                                            @ingredient?.Name
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <span>Non ci sono ingredienti selezionati</span>
+                            }
+                        </p>
+                        <div class="card-subtitle">@pizza.Description.</div>
+                    </div>
+                    
                     <hr class="card-divider">
                     <div class="card-price text-center">
                         <span>@pizza.Price</span> €

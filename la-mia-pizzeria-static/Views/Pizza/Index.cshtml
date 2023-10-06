@@ -10,9 +10,12 @@
 
             <h1 class="my-5 text-center ms_main_title">ECCO UNA LISTA DI TUTTE LE TUE PIZZE</h1>
 
-            <a class="btn my_btn btn-sm mb-5" href="@Url.Action("Aggiungi", "Pizza")">
-                <i class="fa-solid fa-plus"></i> Aggiungi una nuova pizza
-            </a>
+            @if (User.IsInRole("ADMIN"))
+            {
+                <a class="btn my_btn btn-sm mb-5" href="@Url.Action("Aggiungi", "Pizza")">
+                    <i class="fa-solid fa-plus"></i> Aggiungi una nuova pizza
+                </a>
+            }
 
             <table class="table align-middle">
                 <thead>
@@ -67,15 +70,19 @@
                                 <a class="btn my_btn btn-sm" href="@Url.Action("Dettagli", "Pizza", new { id = pizza.Id })">
                                     <i class="fa-solid fa-info mx-1"></i>
                                 </a>
-                                <a class="btn update_btn btn-sm" href="@Url.Action("Aggiorna", "Pizza", new { id = pizza.Id })">
-                                    <i class="fa-solid fa-pencil"></i>
-                                </a>
-                                <form asp-controller="Pizza" asp-action="Cancella" asp-route-id="@pizza.Id" method="post" class="fake_form">
-                                    @Html.AntiForgeryToken()
-                                    <button type="submit" class="btn del_btn btn-sm">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </form>
+                                @if (User.IsInRole("ADMIN"))
+                                {
+                                    <a class="btn update_btn btn-sm" href="@Url.Action("Aggiorna", "Pizza", new { id = pizza.Id })">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    <form asp-controller="Pizza" asp-action="Cancella" asp-route-id="@pizza.Id" method="post" class="fake_form">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn del_btn btn-sm">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </form>
+                                    
+                                }
                                 
                             </td>
                         </tr>

@@ -2,6 +2,7 @@
 using la_mia_pizzeria_static.CustomLoggers;
 using la_mia_pizzeria_static.Database;
 using la_mia_pizzeria_static.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,8 @@ namespace la_mia_pizzeria_static.Controllers
             _myLogger = logger;
             _myDatabase = db;
         }
+
+        [Authorize]
         public IActionResult Index()
         {
             _myLogger.WriteLog("Pagina Admin gestione Pizze");
@@ -54,6 +57,7 @@ namespace la_mia_pizzeria_static.Controllers
 
 
         //CREATE
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Aggiungi()
         {
@@ -76,6 +80,7 @@ namespace la_mia_pizzeria_static.Controllers
             return View("Aggiungi", model);
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Aggiungi(PizzaFormModel data)
@@ -126,7 +131,7 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
         //UPDATE
-
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public IActionResult Aggiorna(int id)
         {
@@ -161,6 +166,7 @@ namespace la_mia_pizzeria_static.Controllers
             }
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Aggiorna(int id, PizzaFormModel data)
@@ -226,28 +232,9 @@ namespace la_mia_pizzeria_static.Controllers
                 return View("NotFoundPage");
             }
 
-            // Variante più semplice 
-
-            /*
-            Pizza? pizzaToUpdate = db.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
-
-            if(pizzaToUpdate != null)
-            {
-                pizzaToUpdate.Gusto = changedPizza.Gusto;
-                pizzaToUpdate.Ingredienti = changedPizza.Ingredienti;
-                pizzaToUpdate.Prezzo = changedPizza.Prezzo;
-                pizzaToUpdate.Immagine = changedPizza.Immagine;
-
-                db.SaveChanges();
-
-                return RedirectToAction("Index");
-            } else
-            {
-                return return View("NotFoundPage");
-            }*/
         }
         //DELETE
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Cancella(int id)
