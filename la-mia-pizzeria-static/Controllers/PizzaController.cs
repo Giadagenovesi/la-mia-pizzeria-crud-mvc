@@ -197,6 +197,7 @@ namespace la_mia_pizzeria_static.Controllers
                 pizzaToUpdate.Image = data.Pizza.Image;
                 pizzaToUpdate.Taste = data.Pizza.Taste;
                 pizzaToUpdate.Price = data.Pizza.Price;
+                pizzaToUpdate.Description = data.Pizza.Description;
                 pizzaToUpdate.CategoryId = data.Pizza.CategoryId;
                 
 
