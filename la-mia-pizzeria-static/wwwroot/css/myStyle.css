@@ -16,10 +16,19 @@ main {
     border-bottom: 3px solid #E80000;
 }
 
+.auth_container {
+    padding:9rem 2rem;
+}
 
+.auth_container a{
+    text-decoration: none;
+    color: black;
+}
 
+    .auth_container a:hover {
+        color: red;
+    }
 /*Utility*/
-
 .my_btn {
     background-color: #FFFEEF;
     border: 2px solid gray;
@@ -278,6 +287,10 @@ a:hover {
 
 .nf_message {
     font-size: 1.2rem;
+}
+
+.auth_action {
+    padding: 4rem 0;
 }
 
 /*MEDIA QUERY*/
